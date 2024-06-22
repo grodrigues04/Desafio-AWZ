@@ -38,3 +38,11 @@ for index, row in df_sales.iterrows(): #para cada linha, nome da coluna e valor 
 
     sales_team_data[seller_name]["Comissão a Receber"] += discounted_commission
     
+for item in sales_team_data:
+    print(f"Seller:{item}",end="comissao: ")
+    print(sales_team_data[item])
+    
+df = pd.DataFrame(sales_team_data)
+
+df_transposed = df.transpose() #Coluna vira linha, e linha vira coluna
+df_transposed.to_csv("./data/output-spreadsheets/VendasComissao.csv")
