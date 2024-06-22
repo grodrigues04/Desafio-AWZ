@@ -173,3 +173,7 @@ poetry.toml
 
 # LSP config files
 pyrightconfig.json
+
+#Output folder
+data/output-spreadsheets/*
+!data/output-spreadsheets/.gitkeep
