@@ -12,6 +12,13 @@ O projeto utiliza uma planilha CSV para calcular a comissão de vendedores, e fa
 
 * Clone o projeto com o comando git clone ```git@github.com:grodrigues04/Desafio-AWZ.git```
 
+### Dependências
+
+* Instale os pacotes de dependências usando -> 
+```shell
+$ pip install -r requirements.txt
+```
+
 ### Execução do programa
 
 * Coloque os arquivos de entrada na pasta "data/spreadsheets"
