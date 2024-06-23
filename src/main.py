@@ -4,6 +4,7 @@ from src.sales import get_sales_employees_data
 
 from src.payments import get_incorrect_payments
 
+from src.contract import coletingMemberShares
 
 def generateEmployeeCSV():
     df = pd.DataFrame(get_sales_employees_data())
@@ -20,6 +21,13 @@ def generateComissionValidationCSV():
     df_transposed = df_transposed.rename_axis("Nome do Vendedor").reset_index()
     df_transposed.to_csv("./data/output-spreadsheets/ComissaoCorreta.csv", index=False)
 
+def generateTableOfShares():
+    df = pd.DataFrame(coletingMemberShares())
+    df_transposed = df.transpose()
+    df_transposed = df_transposed.rename_axis("Nome do Sócio").reset_index()
+    df_transposed.to_csv("./data/output-spreadsheets/Tabela de Socios.csv", index=False)
 
+    
 generateEmployeeCSV()
 generateComissionValidationCSV()
+generateTableOfShares()
