@@ -38,4 +38,3 @@ for index, row in df_sales.iterrows(): #para cada linha, nome da coluna e valor 
     sales_employees_data[seller_name]["Comissão a Receber"] += commission
     
 #Colocar uma coluna para marketing, e uma para manager separado das outras. Acho que fica mais claro dessa maneira
-print(sales_employees_data)
