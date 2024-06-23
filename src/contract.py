@@ -10,8 +10,8 @@ for line in cpf:
     dot_of_name = mainLine.find(".") #Ponto depois dos numeros das listas
     name = mainLine[dot_of_name+2:comma_of_name:1]
     
-    cotas = r'(\d+)\s+cotas'
-    matches = re.findall(cotas, mainLine)
-    cotas = [int(match) for match in matches]
-    member_actions[name] = cotas
+    shares = r'(\d+)\s+cotas'
+    matches = re.findall(shares, mainLine)
+    shares = [int(match) for match in matches]
+    member_actions[name] = shares
 
