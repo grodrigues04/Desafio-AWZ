@@ -1,6 +1,6 @@
 import pandas as pd
 from src.config.settings import get_settings
-
+from src.utils.converterToInt import converterToInt
 
 def get_sales_employees_data():
     path_sales = "./data/spreadsheets/Vendas - Vendas.csv"
@@ -20,14 +20,7 @@ def get_sales_employees_data():
                 "Comissão a Receber": 0,
             }
         sale_value = row["Valor da Venda"]
-        sale_value_int = (
-            int(
-                sale_value.replace("R$", "")
-                .replace(" ", "")
-                .replace(",", "")
-                .replace(".", "")
-            )
-        ) / 100
+        sale_value_int = converterToInt(sale_value)
         sales_channel = row["Canal de Venda"]
         raw_commission = (
             sale_value_int * get_settings().employee_commission
