@@ -1,11 +1,12 @@
 import pandas as pd
 
-from sales import sales_employees_data
-from payments import incorrect_payments
+from src.sales import get_sales_employees_data
+
+from src.payments import get_incorrect_payments
 
 
 def generateEmployeeCSV():
-    df = pd.DataFrame(sales_employees_data)
+    df = pd.DataFrame(get_sales_employees_data())
     df_transposed = df.transpose()  # Coluna vira linha, e linha vira coluna
     df_transposed = df_transposed.rename_axis(
         "Nome do Vendedor"
@@ -14,7 +15,7 @@ def generateEmployeeCSV():
 
 
 def generateComissionValidationCSV():
-    df = pd.DataFrame(incorrect_payments)
+    df = pd.DataFrame(get_incorrect_payments())
     df_transposed = df.transpose()
     df_transposed = df_transposed.rename_axis("Nome do Vendedor").reset_index()
     df_transposed.to_csv("./data/output-spreadsheets/ComissaoCorreta.csv", index=False)
