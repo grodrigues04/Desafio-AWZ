@@ -21,6 +21,7 @@ $ pip install -r requirements.txt
 
 ### Execução do programa
 
+* Para alterar as variaveis de ambiente, copie o .env.example, crie um .env e remova os comentários do que deseja alterar 
 * Coloque os arquivos de entrada na pasta "data/spreadsheets"
     * Nomeie o arquivo das comissões como "Vendas - Vendas.csv"
     * Nomeie o arquivo dos pagamentos como "Vendas - Pagamentos.csv"
