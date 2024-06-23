@@ -3,8 +3,12 @@ from src.sales import get_sales_employees_data
 from src.utils.converterToInt import converterToInt
 
 def get_incorrect_payments():
-    path_payments = "./data/spreadsheets/Vendas - Pagamentos.csv"
-    df_payments = pd.read_csv(path_payments)
+    try:
+        path_payments = "./data/spreadsheets/Venda - Pagamentos.csv"
+        df_payments = pd.read_csv(path_payments)
+    except FileNotFoundError:
+        print('O arquivo de pagamentos näo foi encontrado.')
+        return
 
     incorrect_payments = {}
 
