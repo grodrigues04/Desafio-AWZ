@@ -1,11 +1,11 @@
-contract_path = "data\contract\Partnership.txt"
+from src.utils.separeteByKeyWord import sepateByKeyWord
+cpf = sepateByKeyWord("CPF")
 
-with open(contract_path, 'r') as file:
-    # Read the content of the file
-    content = file.read()
-    
-owners_group = {}
-document_lines= content.splitlines() #Cada linha do documento e separada
+member_actions = {}
 
+for line in cpf:
+    mainLine = line[0]
+    comma_of_name = mainLine.find(",") #Virgula que vem logo apos o nome
+    dot_of_name = mainLine.find(".") #Ponto depois dos numeros das listas
+    name = mainLine[dot_of_name+2:comma_of_name:1]
 
-    
