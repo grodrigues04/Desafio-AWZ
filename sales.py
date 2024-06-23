@@ -1,4 +1,5 @@
 import pandas as pd
+from settings import get_settings
 
 path_sales = "./data/spreadsheets/Vendas - Vendas.csv"
 df_sales = pd.read_csv(path_sales)
@@ -20,18 +21,21 @@ for index, row in df_sales.iterrows(): #para cada linha, nome da coluna e valor 
     sale_value = row["Valor da Venda"]
     sale_value_int = (int(sale_value.replace("R$","").replace(" ","").replace(",","").replace(".","")))/100
     sales_channel = row["Canal de Venda"]
-    commission = sale_value_int*0.1 #Total comission
-
-    sales_employees_data[seller_name]["Comissão Total"] += commission
-    if commission >= 1.500:
-        manager_commission = commission*0.1
-        discounted_commission = commission - manager_commission
+    raw_commission = sale_value_int * get_settings().employee_commission #Total commission
+    manager_commission = 0
+    marketing_commission = 0
+    sales_employees_data[seller_name]["Comissão Total"] += raw_commission
+    
+    if raw_commission >= get_settings().manager_commission:
+        manager_commission = raw_commission * get_settings().manager_commission
     
     if sales_channel == "Online": 
-        marketing_comission = commission*0.2
-        discounted_commission = commission - marketing_comission
+        marketing_commission = raw_commission * get_settings().marketing_commission
 
-    sales_employees_data[seller_name]["Comissão a Receber"] += discounted_commission
+    commission_fee = manager_commission + marketing_commission
+    commission = raw_commission - commission_fee
+    
+    sales_employees_data[seller_name]["Comissão a Receber"] += commission
     
 #Colocar uma coluna para marketing, e uma para manager separado das outras. Acho que fica mais claro dessa maneira
 print(sales_employees_data)
