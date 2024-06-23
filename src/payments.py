@@ -7,23 +7,20 @@ def get_incorrect_payments():
         path_payments = "./data/spreadsheets/Vendas - Pagamentos.csv"
         df_payments = pd.read_csv(path_payments)
     except FileNotFoundError:
-        print('O arquivo de pagamentos näo foi encontrado.')
-        return
+        error_message = "O arquivo de pagamentos näo foi encontrado."
+        print(error_message)
+        raise FileNotFoundError(error_message)
 
     incorrect_payments = {}
-    try:
-        for index, row in df_payments.iterrows():
-            seller_name = row["Nome do Vendedor"]
-            preliminary_commission = row["Comissão"]
-            preliminary_commission_int = converterToInt(preliminary_commission)
-            oficial_comission = get_sales_employees_data()[seller_name]["Comissão a Receber"]
-            if oficial_comission != preliminary_commission_int:
-                incorrect_payments[seller_name] = {
-                    "Valor recebido": f"{preliminary_commission}",
-                    "Valor Correto": f"R${oficial_comission}",
-                }
-    except KeyError as e:
-        print(f"Coluna nâo encontrada: {e}")
-        print("Verifique as colunas da planilha de pagamentos")
-        return 
+
+    for index, row in df_payments.iterrows():
+        seller_name = row["Nome do Vendedor"]
+        preliminary_commission = row["Comissão"]
+        preliminary_commission_int = converterToInt(preliminary_commission)
+        oficial_comission = get_sales_employees_data()[seller_name]["Comissão a Receber"]
+        if oficial_comission != preliminary_commission_int:
+            incorrect_payments[seller_name] = {
+                "Valor recebido": f"{preliminary_commission}",
+                "Valor Correto": f"R${oficial_comission}",
+            }
     return incorrect_payments
