@@ -1,6 +1,6 @@
 from src.utils.separeteByKeyWord import sepateByKeyWord
 import re
-cpf = sepateByKeyWord("CPF")
+cpf = sepateByKeyWord("portador")
 
 member_actions = {}
 
@@ -17,4 +17,3 @@ def coletingMemberShares():
         }
     return member_actions
 
-print(coletingMemberShares())
