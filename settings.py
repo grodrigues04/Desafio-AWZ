@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     manager_commission:float = 0.1
     min_manager_commission:float = 1500
     
+    
 
 @lru_cache()
 def get_settings():
