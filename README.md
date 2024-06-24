@@ -28,18 +28,23 @@ $ pip install -r requirements\requirements.txt
 
 ### Execução do programa
 
-* Para alterar as variaveis de ambiente, copie o .env.example, crie um .env e remova os comentários do que deseja alterar 
+* Para alterar as variáveis de ambiente, copie o .env.example, crie um .env e remova os comentários do que deseja alterar.
+
 * Coloque os arquivos de entrada na pasta "data/spreadsheets"
     * Nomeie o arquivo da planilha como "Vendas.xlsx", como no exemplo do projeto
     * Nomeie o arquivo de partnership como "Partnership.txt"
     * Certifique de que a planilha vendas possui uma aba chamada "Vendas" e "Pagamentos"
 
 * Execute o arquivo main.py para gerar os resultados.
-```shell
-$ pip install -r requirements\requirements.txt
-```
-* Os arquivos de saídas vão ser salvos na pasta "data/output-spreadsheets"
+* Os arquivos de saídas vão ser salvos na pasta "data/output-spreadsheets".
 
+## Possiveis melhorias:
+
+ * Testes: Devido ao limite de tempo, não foi possivel adicionar testes ao programa. Entretanto, testes são uma ótima prática, pois garantem um código robusto e eficiente, facilitando o tratamento de erros e aumentando a confiabilidade do código.
+
+ * Interface Gráfica: Levando em consideração que o código seria utilizado por um departamento onde o foco não é a tecnologia, a interface gráfica é uma excelente maneira de garantir que qualquer pessoa da empresa seja capaz de utilizar, sem conhecimentos prévios em programação.
+
+ * Tratamento de exceções: Apesar de ter sido implementado, o tratamento de exceções poderia ter sido feito com exceções mais específicas, facilitando a manutenção e correção de eventuais bugs. Isso contribuiria para uma identificação mais precisa das falhas no código e permitiria uma resposta mais direcionada a cada tipo de erro, aumentando a eficiência do sistema como um todo. Além disso, oferece uma mensagem de erro mais amigável ao usuário que deseja utilizar o sistema.
 ## Autor
 
 * Gustavo Bernardo Rodrigues | [linkedin](https://www.linkedin.com/in/gustavorodriguesb04/)
