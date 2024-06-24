@@ -1,8 +1,8 @@
 from src.config.settings import get_settings
 from src.utils import parse_to_number, read_spreadsheets
 
-def get_sales_employees_data():
 
+def get_sales_employees_data():
     df_sales = read_spreadsheets("Vendas")
     sales_employees_data = {}
     # commission
@@ -29,14 +29,16 @@ def get_sales_employees_data():
                 manager_commission = raw_commission * get_settings().manager_commission
 
             if sales_channel == "Online":
-                marketing_commission = raw_commission * get_settings().marketing_commission
+                marketing_commission = (
+                    raw_commission * get_settings().marketing_commission
+                )
 
             commission_fee = manager_commission + marketing_commission
             commission = raw_commission - commission_fee
 
             sales_employees_data[seller_name]["Comissão a Receber"] += commission
     except (KeyError, TypeError) as e:
-        error_message = f"Coluna não encontrada: {e}" 
+        error_message = f"Coluna não encontrada: {e}"
         print(error_message)
         raise KeyError(error_message)
     return sales_employees_data

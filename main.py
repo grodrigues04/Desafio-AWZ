@@ -6,6 +6,7 @@ from src.payments import get_incorrect_payments
 
 from src.contract import coletingMemberShares
 
+
 def generateEmployeeCSV():
     print("Iniciando geração da planilha de comissão...")
     df = pd.DataFrame(get_sales_employees_data())
@@ -26,6 +27,7 @@ def generateComissionValidationCSV():
     df_transposed.to_csv("./data/output-spreadsheets/ComissaoCorreta.csv", index=False)
     print("Planilha de validação de pagamentos gerada com sucesso\n")
 
+
 def generateTableOfShares():
     print("Iniciando geração da planilha de quadro de socios...")
     df = pd.DataFrame(coletingMemberShares())
@@ -33,9 +35,10 @@ def generateTableOfShares():
     df_transposed = df_transposed.rename_axis("Nome do Sócio").reset_index()
     df_transposed.to_csv("./data/output-spreadsheets/Tabela de Socios.csv", index=False)
     print("Planilha de quadro de socios gerada com sucesso\n")
+
+
 def main():
     try:
-
         generateEmployeeCSV()
         generateComissionValidationCSV()
         generateTableOfShares()
