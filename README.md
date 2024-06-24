@@ -24,8 +24,8 @@ $ pip install -r requirements.txt
 
 * Para alterar as variaveis de ambiente, copie o .env.example, crie um .env e remova os comentários do que deseja alterar 
 * Coloque os arquivos de entrada na pasta "data/spreadsheets"
-    * Nomeie o arquivo das comissões como "Vendas - Vendas.csv"
-    * Nomeie o arquivo dos pagamentos como "Vendas - Pagamentos.csv"
+    * Nomeie o arquivo da planilha como "Vendas.xlsx", como no exemplo do projeto
+    * Certifique de que a planilha vendas possui uma aba chamada "Vendas" e "Pagamentos"
     * Nomeie o arquivo de parnership como "Partnership.txt"
 * Os arquivos de saídas vão ser salvos na pasta "data/output-spreadsheets"
 
