@@ -45,6 +45,9 @@ $ pip install -r requirements\requirements.txt
  * Interface Gráfica: Levando em consideração que o código seria utilizado por um departamento onde o foco não é a tecnologia, a interface gráfica é uma excelente maneira de garantir que qualquer pessoa da empresa seja capaz de utilizar, sem conhecimentos prévios em programação.
 
  * Tratamento de exceções: Apesar de ter sido implementado, o tratamento de exceções poderia ter sido feito com exceções mais específicas, facilitando a manutenção e correção de eventuais bugs. Isso contribuiria para uma identificação mais precisa das falhas no código e permitiria uma resposta mais direcionada a cada tipo de erro, aumentando a eficiência do sistema como um todo. Além disso, oferece uma mensagem de erro mais amigável ao usuário que deseja utilizar o sistema.
+
+## Observação
+ * Imaginando um ambiente de produção real, optei por criar uma planilha de vendas fictícia para manter um anonimato dos dados e deixar apenas como exemplo no repósitório.
 ## Autor
 
 * Gustavo Bernardo Rodrigues | [linkedin](https://www.linkedin.com/in/gustavorodriguesb04/)
