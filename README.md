@@ -19,6 +19,11 @@ gera um uma planilha com a quantidade de cotas de cada sócio
 ```shell
 $ pip install -r requirements.txt
 ```
+* Caso você esteja no windons e se deparar com um problema de caminho, utilize o comando:
+
+```shell
+$ pip install -r requirements\requirements.txt
+```
 
 ### Execução do programa
 
