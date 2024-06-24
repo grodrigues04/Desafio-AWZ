@@ -1,6 +1,6 @@
-from src.utils.separeteByKeyWord import sepateByKeyWord
+from src.utils import separete_by_keyword
 import re
-cpf = sepateByKeyWord("portador")
+cpf = separete_by_keyword("portador")
 
 member_actions = {}
 

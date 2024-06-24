@@ -1,26 +1,19 @@
-import pandas as pd
 from src.sales import get_sales_employees_data
-from src.utils.converterToInt import converterToInt
+from src.utils import parse_to_number, read_spreadsheets
 
 def get_incorrect_payments():
-    try:
-        path_payments = "./data/spreadsheets/Vendas - Pagamentos.csv"
-        df_payments = pd.read_csv(path_payments)
-    except FileNotFoundError:
-        error_message = "O arquivo de pagamentos näo foi encontrado."
-        print(error_message)
-        raise FileNotFoundError(error_message)
+    df_payments = read_spreadsheets("Pagamentos")
 
     incorrect_payments = {}
 
     for index, row in df_payments.iterrows():
         seller_name = row["Nome do Vendedor"]
         preliminary_commission = row["Comissão"]
-        preliminary_commission_int = converterToInt(preliminary_commission)
+        preliminary_commission_number = parse_to_number(preliminary_commission)
         oficial_comission = get_sales_employees_data()[seller_name]["Comissão a Receber"]
-        if oficial_comission != preliminary_commission_int:
+        if oficial_comission != preliminary_commission_number:
             incorrect_payments[seller_name] = {
-                "Valor recebido": f"{preliminary_commission}",
+                "Valor recebido": f"{preliminary_commission_number}",
                 "Valor Correto": f"R${oficial_comission}",
             }
     return incorrect_payments

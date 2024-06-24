@@ -1,18 +1,9 @@
-import pandas as pd
 from src.config.settings import get_settings
-from src.utils.converterToInt import converterToInt
+from src.utils import parse_to_number, read_spreadsheets
 
 def get_sales_employees_data():
-    try:
-        path_sales = "./data/spreadsheets/Vendas - Vendas.csv"
-        df_sales = pd.read_csv(path_sales)
-    except FileNotFoundError:
-        error_message = "O arquivo de vendas näo foi encontrado."
-        print(error_message)
-        raise FileNotFoundError(error_message)
-    # dataframe = varias series formam um dataframe
-    # series = itens associados a colunas (1,y)
 
+    df_sales = read_spreadsheets("Vendas")
     sales_employees_data = {}
     # commission
     try:
@@ -25,10 +16,10 @@ def get_sales_employees_data():
                     "Comissão a Receber": 0,
                 }
             sale_value = row["Valor da Venda"]
-            sale_value_int = converterToInt(sale_value)
+            sale_value_number = parse_to_number(sale_value)
             sales_channel = row["Canal de Venda"]
             raw_commission = (
-                sale_value_int * get_settings().employee_commission
+                sale_value_number * get_settings().employee_commission
             )  # Total commission
             manager_commission = 0
             marketing_commission = 0
