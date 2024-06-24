@@ -5,7 +5,6 @@ from src.utils import parse_to_number, read_spreadsheets
 def get_sales_employees_data():
     df_sales = read_spreadsheets("Vendas")
     sales_employees_data = {}
-    # commission
     try:
         for index, row in df_sales.iterrows():
             seller_name = row["Nome do Vendedor"]
@@ -20,7 +19,7 @@ def get_sales_employees_data():
             sales_channel = row["Canal de Venda"]
             raw_commission = (
                 sale_value_number * get_settings().employee_commission
-            )  # Total commission
+            )  
             manager_commission = 0
             marketing_commission = 0
             sales_employees_data[seller_name]["Comissão Total"] += raw_commission
