@@ -12,6 +12,7 @@ gera um uma planilha com a quantidade de cotas de cada sócio
 ### Instalação
 
 * Clone o projeto com o comando git clone ```git@github.com:grodrigues04/Desafio-AWZ.git```
+* Entre dentro da pasta "desafio-AWZ"
 
 ### Dependências
 
@@ -30,8 +31,13 @@ $ pip install -r requirements\requirements.txt
 * Para alterar as variaveis de ambiente, copie o .env.example, crie um .env e remova os comentários do que deseja alterar 
 * Coloque os arquivos de entrada na pasta "data/spreadsheets"
     * Nomeie o arquivo da planilha como "Vendas.xlsx", como no exemplo do projeto
-    * Certifique de que a planilha vendas possui uma aba chamada "Vendas" e "Pagamentos"
     * Nomeie o arquivo de partnership como "Partnership.txt"
+    * Certifique de que a planilha vendas possui uma aba chamada "Vendas" e "Pagamentos"
+
+* Execute o arquivo main.py para gerar os resultados.
+```shell
+$ pip install -r requirements\requirements.txt
+```
 * Os arquivos de saídas vão ser salvos na pasta "data/output-spreadsheets"
 
 ## Autor
