@@ -17,7 +17,7 @@ gera um uma planilha com a quantidade de cotas de cada sócio
 
 * Instale os pacotes de dependências usando:
 ```shell
-$ pip install -r requirements.txt
+$ pip install -r requirements/requirements.txt
 ```
 * Caso você esteja no windons e se deparar com um problema de caminho, utilize o comando:
 
@@ -31,7 +31,7 @@ $ pip install -r requirements\requirements.txt
 * Coloque os arquivos de entrada na pasta "data/spreadsheets"
     * Nomeie o arquivo da planilha como "Vendas.xlsx", como no exemplo do projeto
     * Certifique de que a planilha vendas possui uma aba chamada "Vendas" e "Pagamentos"
-    * Nomeie o arquivo de parnership como "Partnership.txt"
+    * Nomeie o arquivo de partnership como "Partnership.txt"
 * Os arquivos de saídas vão ser salvos na pasta "data/output-spreadsheets"
 
 ## Autor
