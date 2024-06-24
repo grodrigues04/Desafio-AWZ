@@ -27,7 +27,7 @@ def parse_to_number(comission):
 
 
 def separete_by_keyword(keyword):
-    contract_path = "data\contract\Partnership.txt"
+    contract_path = "./data/contract/Partnership.txt"
     with open(contract_path, 'r') as file:
     # Read the content of the file
         content = file.read()
